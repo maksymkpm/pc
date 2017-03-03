@@ -1,6 +1,7 @@
 <?php
 namespace api\v1_0\controller;
 
+use rest\components\auth\BearerAuth;
 /**
  * Base class for all controllers in this version of the API server.
  * It can contain some global logic, what is actual for all controllers.
@@ -16,5 +17,11 @@ abstract class TestBaseController extends BaseController  {
 	 */
 	protected function runBeforeAction() {
 		parent::runBeforeAction();
+
+		$token = (new BearerAuth($this->request))->getToken() ?? $this->request->dataPost('token');
+
+		if (empty($token)) {
+			throw new \AuthenticationException("Invalid access token", 403);
+		}
 	}
 }
