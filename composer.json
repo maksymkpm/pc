@@ -1,0 +1,25 @@
+{
+  "name": "test api",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/maksymkpm/common.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/maksymkpm/rest.git"
+    }
+  ],
+  "autoload": {
+    "psr-4": {     
+      "api\\": "api/"
+    }
+  },
+  "require": {
+    "common": "dev-master",
+    "rest": "dev-master"
+  },
+  "__require": {
+    "php": "^7.1"
+  }
+}
