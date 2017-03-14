@@ -1,5 +1,6 @@
 <?php
 namespace api\v1_0\controller;
+
 use AuthenticationException;
 use \rest\controller;
 use rest\response;

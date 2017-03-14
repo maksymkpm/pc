@@ -10,7 +10,7 @@ date_default_timezone_set('UTC');
 //server::debug_mode_disable(); // debug mode disables caching of routing table
 Server::debugModeEnable();
 // by default the server will support GET, POST, PUT, DELETE
-Server::setSupportedMethods(request::HTTP_GET, request::HTTP_POST, request::HTTP_DELETE, request::HTTP_PUT);
+Server::setSupportedMethods(request::HTTP_GET, request::HTTP_POST, request::HTTP_DELETE, request::HTTP_PUT, request::HTTP_OPTIONS);
 
 // Setup routing table
 require 'routing.php';

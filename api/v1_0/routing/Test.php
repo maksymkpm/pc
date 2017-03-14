@@ -1,5 +1,5 @@
 <?php
-use api\v1_0\controller\TestController;
+use api\v1_0\controller\test\TestController;
 
 use \rest\router;
 use \rest\request;
@@ -17,3 +17,6 @@ router::controller(TestController::class)
 
 router::controller(TestController::class)
 	->addAction(request::HTTP_DELETE, 'test', 'delete');
+
+router::controller(TestController::class)
+	->addAction(request::HTTP_OPTIONS, 'test', 'options');
