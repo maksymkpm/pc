@@ -9,7 +9,6 @@ abstract class TestBaseController extends BaseController  {
 		parent::runBeforeAction();
 
 		$token = (new BearerAuth($this->request))->getToken() ?? $this->request->dataPost('token');
-		$token = 'sss';
 
 		if (empty($token)) {
 			throw new \AuthenticationException("Invalid access token {$token}", 403);
