@@ -17,3 +17,6 @@ router::controller(IssueController::class)
 
 router::controller(IssueController::class)
 	->addAction(request::HTTP_DELETE, 'issue', 'delete');
+
+router::controller(IssueController::class)
+	->addAction(request::HTTP_GET, 'issue-class', 'ReturnIssueClassifications');

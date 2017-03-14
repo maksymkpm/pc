@@ -29,4 +29,7 @@ class IssueController extends IssueBaseController {
 		);
 	}
 
+	protected function actionReturnIssueClassifications() {
+		$this->response->set(\Issue::ReturnIssueClassifications());
+	}
 }
