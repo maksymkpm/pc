@@ -3,6 +3,7 @@ namespace api\v1_0\controller\Issue;
 
 use \RequestParameters\IssueGet;
 use \RequestParameters\IssueCreate;
+use \RequestParameters\IssueEdit;
 
 use RuntimeException;
 
@@ -11,7 +12,7 @@ class IssueController extends IssueBaseController {
 		$get = $this->request->dataGet();
 		$params = new IssueGet($get);
 		$issue = \Issue::Get((int) $params->issue_id);
-		
+
 		$result = [
 			'issue_id' => $issue->getIssueId(),
 			'member_id' => $issue->getMemberId(),
@@ -26,7 +27,7 @@ class IssueController extends IssueBaseController {
 			'comments_amount' => $issue->getCommentsAmount(),
 			'date_added' => $issue->getDateAdded(),
 		];
-		
+
 		$this->response->set($result);
 	}
 
@@ -58,9 +59,26 @@ class IssueController extends IssueBaseController {
 	}
 
 	protected function actionEdit() {
-		$this->response->set(
-			['method' => 'edit issue']
-		);
+		$put = $this->request->dataPost();
+		$params = new IssueEdit($put);
+		$issue = \Issue::Edit($params);
+
+		$result = [
+			'issue_id' => $issue->getIssueId(),
+			'member_id' => $issue->getMemberId(),
+			'title' => $issue->getTitle(),
+			'description' => $issue->getDescription(),
+			'class_id' => $issue->getClassId(),
+			'category_id' => $issue->getCategoryId(),
+			'object_id' => $issue->getObjectId(),
+			'subject_id' => $issue->getSubjectId(),
+			'priority' => $issue->getPriorityId(),
+			'status' => $issue->getStatus(),
+			'comments_amount' => $issue->getCommentsAmount(),
+			'date_added' => $issue->getDateAdded(),
+		];
+
+		$this->response->set($result);
 	}
 
 	protected function actionDelete() {
