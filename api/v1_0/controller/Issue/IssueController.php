@@ -31,6 +31,7 @@ class IssueController extends IssueBaseController {
 			'priority' => $issue->getPriorityId(),
 			'status' => $issue->getStatus(),
 			'comments_amount' => $issue->getCommentsAmount(),
+			'last_updated' => $issue->getLastUpdated(),
 			'date_added' => $issue->getDateAdded(),
 		];
 
@@ -54,6 +55,7 @@ class IssueController extends IssueBaseController {
 			'priority' => $issue->getPriorityId(),
 			'status' => $issue->getStatus(),
 			'comments_amount' => $issue->getCommentsAmount(),
+			'last_updated' => $issue->getLastUpdated(),
 			'date_added' => $issue->getDateAdded(),
 		];
 
@@ -77,6 +79,7 @@ class IssueController extends IssueBaseController {
 			'priority' => $issue->getPriorityId(),
 			'status' => $issue->getStatus(),
 			'comments_amount' => $issue->getCommentsAmount(),
+			'last_updated' => $issue->getLastUpdated(),
 			'date_added' => $issue->getDateAdded(),
 		];
 

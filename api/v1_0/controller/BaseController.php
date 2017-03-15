@@ -58,7 +58,7 @@ abstract class BaseController extends controller {
 			];
 
 			if (server::isDebugModeEnabled()) {
-				$result['trace'] = $e->getTraceAsString();
+				//$result['trace'] = $e->getTraceAsString();
 			}
 
 			//header('Content-Type: application/json', true, 400);
@@ -86,9 +86,9 @@ abstract class BaseController extends controller {
 				'message' => $e->getMessage(),
 			];
 
-			$result['trace'] = $e->getTrace();
+			//$result['trace'] = $e->getTrace();
 			
-			header('Content-Type: application/json', true, 500);
+			//header('Content-Type: application/json', true, 500);
 			
 			$this->response->set($result);
 		} catch (\DatabaseException $e) {

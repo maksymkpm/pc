@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS `issue` (
   `subject_id` tinyint(3) DEFAULT NULL,
   `priority` ENUM('1','2','3','4','5') NOT NULL DEFAULT '3' COLLATE 'utf8_unicode_ci',
   `status` ENUM('new','opened','closed','deleted','archived') NOT NULL DEFAULT 'new' COLLATE 'utf8_unicode_ci',
+  `last_updated` DATETIME NOT NULL,
   `date_added` DATETIME NOT NULL,
   `comments_amount` int(11) NOT NULL DEFAULT 0,
 
@@ -39,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `issue` (
 	INDEX `subject_id` (`subject_id`),
 	INDEX `priority` (`priority`),
 	INDEX `status` (`status`),
+	INDEX `last_updated` (`last_updated`),
 	INDEX `date_added` (`date_added`),
 	INDEX `comments_amount` (`comments_amount`)
 
