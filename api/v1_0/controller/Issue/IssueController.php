@@ -11,6 +11,7 @@ class IssueController extends IssueBaseController {
 	protected function actionGet() {
 		$get = $this->request->dataGet();
 		$params = new IssueGet($get);
+
 		$issue = \Issue::Get((int) $params->issue_id);
 
 		$result = [
@@ -35,10 +36,6 @@ class IssueController extends IssueBaseController {
 		$post = $this->request->dataPost();
 		$params = new IssueCreate($post);
 		$issue = \Issue::Create($params);
-
-		if (!$issue) {
-			throw new RuntimeException('Issue not created');
-		}
 
 		$result = [
 			'issue_id' => $issue->getIssueId(),

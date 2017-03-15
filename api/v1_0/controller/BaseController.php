@@ -61,7 +61,7 @@ abstract class BaseController extends controller {
 				$result['trace'] = $e->getTraceAsString();
 			}
 
-			header('Content-Type: application/json', true, 400);
+			//header('Content-Type: application/json', true, 400);
 
 			$this->response->set($result);
 		} catch (\AuthenticationException $e){
@@ -87,8 +87,9 @@ abstract class BaseController extends controller {
 			];
 
 			$result['trace'] = $e->getTrace();
-
+			
 			header('Content-Type: application/json', true, 500);
+			
 			$this->response->set($result);
 		} catch (\DatabaseException $e) {
 			$result = [
