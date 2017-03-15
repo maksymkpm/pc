@@ -10,8 +10,10 @@ abstract class IssueBaseController extends BaseController  {
 		
 		$token = (new BearerAuth($this->request))->getToken();
 
-		if (empty($token)) {
-			throw new \AuthenticationException("Invalid access token", 403);
+		if (!in_array($this->action, $this->noTokenAction)) {
+			if (empty($token)) {
+				throw new \AuthenticationException('Invalid access token', 403);
+			}
 		}
 	}
 }

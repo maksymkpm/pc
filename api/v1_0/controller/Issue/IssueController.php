@@ -8,6 +8,11 @@ use \RequestParameters\IssueEdit;
 use RuntimeException;
 
 class IssueController extends IssueBaseController {
+	protected $noTokenAction = [
+		'Get',
+		'ReturnIssueClassifications',
+	];
+
 	protected function actionGet() {
 		$get = $this->request->dataGet();
 		$params = new IssueGet($get);

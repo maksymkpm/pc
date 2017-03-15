@@ -70,7 +70,7 @@ abstract class BaseController extends controller {
 				'message' => $e->getMessage()
 			];
 
-			header('Content-Type: application/json', true, $e->getCode());
+			//header('Content-Type: application/json', true, $e->getCode());
 			$this->response->set($result);
 		}catch (\NotFoundHttpException $e){
 			$result = [
