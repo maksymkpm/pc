@@ -20,19 +20,21 @@ class IssueController extends IssueBaseController {
 		$issue = \Issue::Get((int) $params->issue_id);
 
 		$result = [
-			'issue_id' => $issue->getIssueId(),
-			'member_id' => $issue->getMemberId(),
-			'title' => $issue->getTitle(),
-			'description' => $issue->getDescription(),
-			'class_id' => $issue->getClassId(),
-			'category_id' => $issue->getCategoryId(),
-			'object_id' => $issue->getObjectId(),
-			'subject_id' => $issue->getSubjectId(),
-			'priority' => $issue->getPriorityId(),
-			'status' => $issue->getStatus(),
-			'comments_amount' => $issue->getCommentsAmount(),
-			'last_updated' => $issue->getLastUpdated(),
-			'date_added' => $issue->getDateAdded(),
+			'issue_id' => $issue->data['issue_id'],
+			'member_id' => $issue->data['member_id'],
+			'title' => $issue->data['title'],
+			'description' => $issue->data['description'],
+			'class_id' => $issue->data['class_id'],
+			'category_id' => $issue->data['category_id'],
+			'object_id' => $issue->data['object_id'],
+			'subject_id' => $issue->data['subject_id'],
+			'priority' => $issue->data['priority'],
+			'status' => $issue->data['status'],
+			'helpful' => $issue->data['helpful'],
+			'not_helpful' => $issue->data['not_helpful'],
+			'comments_amount' => $issue->data['comments_amount'],
+			'last_updated' => $issue->data['last_updated'],
+			'date_added' => $issue->data['date_added'],
 		];
 
 		$this->response->set($result);
@@ -44,19 +46,21 @@ class IssueController extends IssueBaseController {
 		$issue = \Issue::Create($params);
 
 		$result = [
-			'issue_id' => $issue->getIssueId(),
-			'member_id' => $issue->getMemberId(),
-			'title' => $issue->getTitle(),
-			'description' => $issue->getDescription(),
-			'class_id' => $issue->getClassId(),
-			'category_id' => $issue->getCategoryId(),
-			'object_id' => $issue->getObjectId(),
-			'subject_id' => $issue->getSubjectId(),
-			'priority' => $issue->getPriorityId(),
-			'status' => $issue->getStatus(),
-			'comments_amount' => $issue->getCommentsAmount(),
-			'last_updated' => $issue->getLastUpdated(),
-			'date_added' => $issue->getDateAdded(),
+			'issue_id' => $issue->data['issue_id'],
+			'member_id' => $issue->data['member_id'],
+			'title' => $issue->data['title'],
+			'description' => $issue->data['description'],
+			'class_id' => $issue->data['class_id'],
+			'category_id' => $issue->data['category_id'],
+			'object_id' => $issue->data['object_id'],
+			'subject_id' => $issue->data['subject_id'],
+			'priority' => $issue->data['priority'],
+			'status' => $issue->data['status'],
+			'helpful' => $issue->data['helpful'],
+			'not_helpful' => $issue->data['not_helpful'],
+			'comments_amount' => $issue->data['comments_amount'],
+			'last_updated' => $issue->data['last_updated'],
+			'date_added' => $issue->data['date_added'],
 		];
 
 		$this->response->set($result);
@@ -68,28 +72,24 @@ class IssueController extends IssueBaseController {
 		$issue = \Issue::Edit($params);
 
 		$result = [
-			'issue_id' => $issue->getIssueId(),
-			'member_id' => $issue->getMemberId(),
-			'title' => $issue->getTitle(),
-			'description' => $issue->getDescription(),
-			'class_id' => $issue->getClassId(),
-			'category_id' => $issue->getCategoryId(),
-			'object_id' => $issue->getObjectId(),
-			'subject_id' => $issue->getSubjectId(),
-			'priority' => $issue->getPriorityId(),
-			'status' => $issue->getStatus(),
-			'comments_amount' => $issue->getCommentsAmount(),
-			'last_updated' => $issue->getLastUpdated(),
-			'date_added' => $issue->getDateAdded(),
+			'issue_id' => $issue->data['issue_id'],
+			'member_id' => $issue->data['member_id'],
+			'title' => $issue->data['title'],
+			'description' => $issue->data['description'],
+			'class_id' => $issue->data['class_id'],
+			'category_id' => $issue->data['category_id'],
+			'object_id' => $issue->data['object_id'],
+			'subject_id' => $issue->data['subject_id'],
+			'priority' => $issue->data['priority'],
+			'status' => $issue->data['status'],
+			'helpful' => $issue->data['helpful'],
+			'not_helpful' => $issue->data['not_helpful'],
+			'comments_amount' => $issue->data['comments_amount'],
+			'last_updated' => $issue->data['last_updated'],
+			'date_added' => $issue->data['date_added'],
 		];
 
 		$this->response->set($result);
-	}
-
-	protected function actionDelete() {
-		$this->response->set(
-			['method' => 'delete issue']
-		);
 	}
 
 	protected function actionReturnIssueClassifications() {

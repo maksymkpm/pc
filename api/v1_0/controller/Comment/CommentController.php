@@ -24,6 +24,8 @@ class CommentController extends CommentBaseController {
 			'member_id' => $comment->data['member_id'],
 			'message' => $comment->data['message'],
 			'status' => $comment->data['status'],
+			'helpful' => $comment->data['helpful'],
+			'not_helpful' => $comment->data['not_helpful'],
 			'last_updated' => $comment->data['last_updated'],
 			'date_added' => $comment->data['date_added'],
 		];
@@ -42,6 +44,8 @@ class CommentController extends CommentBaseController {
 			'member_id' => $comment->data['member_id'],
 			'message' => $comment->data['message'],
 			'status' => $comment->data['status'],
+			'helpful' => $comment->data['helpful'],
+			'not_helpful' => $comment->data['not_helpful'],
 			'last_updated' => $comment->data['last_updated'],
 			'date_added' => $comment->data['date_added'],
 		];
@@ -60,6 +64,8 @@ class CommentController extends CommentBaseController {
 			'member_id' => $comment->data['member_id'],
 			'message' => $comment->data['message'],
 			'status' => $comment->data['status'],
+			'helpful' => $comment->data['helpful'],
+			'not_helpful' => $comment->data['not_helpful'],
 			'last_updated' => $comment->data['last_updated'],
 			'date_added' => $comment->data['date_added'],
 		];

@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS `issue_comment` (
   `member_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `message` TEXT COLLATE utf8_unicode_ci NOT NULL,
   `status` ENUM('new','published','deleted','archived') NOT NULL DEFAULT 'new' COLLATE 'utf8_unicode_ci',
+  `helpful` int(11) NOT NULL DEFAULT 0,
+  `not_helpful` int(11) NOT NULL DEFAULT 0,
   `last_updated` DATETIME NOT NULL,
   `date_added` DATETIME NOT NULL,
 
@@ -14,7 +16,9 @@ CREATE TABLE IF NOT EXISTS `issue_comment` (
   INDEX `issue_id` (`issue_id`),
   INDEX `member_id` (`member_id`),
   INDEX `status` (`status`),
-	INDEX `last_updated` (`last_updated`),
+  INDEX `helpful` (`helpful`),
+  INDEX `not_helpful` (`not_helpful`),
+  INDEX `last_updated` (`last_updated`),
   INDEX `date_added` (`date_added`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -29,9 +33,11 @@ CREATE TABLE IF NOT EXISTS `issue` (
   `subject_id` tinyint(3) DEFAULT NULL,
   `priority` ENUM('1','2','3','4','5') NOT NULL DEFAULT '3' COLLATE 'utf8_unicode_ci',
   `status` ENUM('new','opened','closed','deleted','archived') NOT NULL DEFAULT 'new' COLLATE 'utf8_unicode_ci',
+  `helpful` int(11) NOT NULL DEFAULT 0,
+  `not_helpful` int(11) NOT NULL DEFAULT 0,
+  `comments_amount` int(11) NOT NULL DEFAULT 0,
   `last_updated` DATETIME NOT NULL,
   `date_added` DATETIME NOT NULL,
-  `comments_amount` int(11) NOT NULL DEFAULT 0,
 
   PRIMARY KEY (`issue_id`),	
 	INDEX `member_id` (`member_id`),
@@ -42,8 +48,10 @@ CREATE TABLE IF NOT EXISTS `issue` (
 	INDEX `subject_id` (`subject_id`),
 	INDEX `priority` (`priority`),
 	INDEX `status` (`status`),
+	INDEX `helpful` (`helpful`),
+    INDEX `not_helpful` (`not_helpful`),
+	INDEX `comments_amount` (`comments_amount`),
 	INDEX `last_updated` (`last_updated`),
-	INDEX `date_added` (`date_added`),
-	INDEX `comments_amount` (`comments_amount`)
+	INDEX `date_added` (`date_added`)	
 
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
