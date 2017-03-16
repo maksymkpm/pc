@@ -32,6 +32,38 @@ $methods = [
 			'status' => 'archived'
 		],
 	],
+	
+	'open' => [
+		'url' => 'http://localhost.api.com/1.0/issue/open',
+		'method' => 'PUT',
+		'param' => [
+			'issue_id' => rand(1,8),
+		],
+	],
+	
+	'close' => [
+		'url' => 'http://localhost.api.com/1.0/issue/close',
+		'method' => 'PUT',
+		'param' => [
+			'issue_id' => rand(1,8),
+		],
+	],
+	
+	'delete' => [
+		'url' => 'http://localhost.api.com/1.0/issue/delete',
+		'method' => 'PUT',
+		'param' => [
+			'issue_id' => rand(1,8),
+		],
+	],
+	
+	'archive' => [
+		'url' => 'http://localhost.api.com/1.0/issue/archive',
+		'method' => 'PUT',
+		'param' => [
+			'issue_id' => rand(1,8),
+		],
+	],
 
 ];
 

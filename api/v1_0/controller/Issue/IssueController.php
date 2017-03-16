@@ -90,4 +90,56 @@ class IssueController extends IssueBaseController {
 
 		$this->response->set($result);
 	}
+	
+	protected function actionOpen() {
+		$request = $this->request->dataPost();
+		$params = new IssueEdit($request);
+		
+		$issue = \Issue::Open($params);
+
+		$result = [
+			'issue_id' => $issue->data['issue_id'],
+		];
+
+		$this->response->set($result);
+	}
+	
+	protected function actionClose() {
+		$request = $this->request->dataPost();
+		$params = new IssueEdit($request);
+		
+		$issue = \Issue::Close($params);
+
+		$result = [
+			'issue_id' => $issue->data['issue_id'],
+		];
+
+		$this->response->set($result);
+	}
+	
+	protected function actionDelete() {
+		$request = $this->request->dataPost();
+		$params = new IssueEdit($request);
+		
+		$issue = \Issue::Delete($params);
+
+		$result = [
+			'issue_id' => $issue->data['issue_id'],
+		];
+
+		$this->response->set($result);
+	}
+	
+	protected function actionArchive() {
+		$request = $this->request->dataPost();
+		$params = new IssueEdit($request);
+		
+		$issue = \Issue::Archive($params);
+
+		$result = [
+			'issue_id' => $issue->data['issue_id'],
+		];
+
+		$this->response->set($result);
+	}
 }
