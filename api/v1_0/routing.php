@@ -14,6 +14,6 @@ if (\rest\router::loadFromCache()) {
 
 // we can put every controller routing to separate files for easy managing and split API areas between developers
 
-include __DIR__ . '/routing/Test.php';
 include __DIR__ . '/routing/Issue.php';
 include __DIR__ . '/routing/Comment.php';
+include __DIR__ . '/routing/Classification.php';
