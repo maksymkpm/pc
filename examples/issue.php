@@ -32,13 +32,7 @@ $methods = [
 			'status' => 'archived'
 		],
 	],
-	
-	'classification' => [
-		'url' => 'http://localhost.api.com/1.0/issue-class',
-		'method' => 'GET',
-		'param' => [
-		],
-	],
+
 ];
 
 foreach ($methods as $key => $method) {

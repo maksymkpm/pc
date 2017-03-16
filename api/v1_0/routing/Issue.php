@@ -14,6 +14,3 @@ router::controller(IssueController::class)
 
 router::controller(IssueController::class)
 	->addAction(request::HTTP_PUT, 'issue', 'edit');
-
-router::controller(IssueController::class)
-	->addAction(request::HTTP_DELETE, 'issue', 'delete');

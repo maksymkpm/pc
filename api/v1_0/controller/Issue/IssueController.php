@@ -10,7 +10,6 @@ use RuntimeException;
 class IssueController extends IssueBaseController {
 	protected $noTokenAction = [
 		'Get',
-		'ReturnIssueClassifications',
 	];
 
 	protected function actionGet() {
@@ -90,9 +89,5 @@ class IssueController extends IssueBaseController {
 		];
 
 		$this->response->set($result);
-	}
-
-	protected function actionReturnIssueClassifications() {
-		$this->response->set(\Issue::ReturnIssueClassifications());
 	}
 }
