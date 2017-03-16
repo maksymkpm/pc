@@ -16,4 +16,10 @@ router::controller(CommentController::class)
 	->addAction(request::HTTP_PUT, 'comment', 'edit');
 
 router::controller(CommentController::class)
-	->addAction(request::HTTP_DELETE, 'comment', 'delete');
+	->addAction(request::HTTP_PUT, 'comment/publish', 'publish');
+
+router::controller(CommentController::class)
+	->addAction(request::HTTP_PUT, 'comment/delete', 'delete');
+
+router::controller(CommentController::class)
+	->addAction(request::HTTP_PUT, 'comment/archive', 'archive');

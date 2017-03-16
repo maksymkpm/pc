@@ -66,4 +66,40 @@ class CommentController extends CommentBaseController {
 
 		$this->response->set($result);
 	}
+
+	protected function actionPublish() {
+		$delete = $this->request->dataPost();
+		$params = new CommentEdit($delete);
+		$comment = \Comment::Publish($params);
+
+		$result = [
+			'comment_id' => $comment->getCommentId(),
+		];
+
+		$this->response->set($result);
+	}
+
+	protected function actionDelete() {
+		$delete = $this->request->dataPost();
+		$params = new CommentEdit($delete);
+		$comment = \Comment::Delete($params);
+
+		$result = [
+			'comment_id' => $comment->getCommentId(),
+		];
+
+		$this->response->set($result);
+	}
+
+	protected function actionArchive() {
+		$delete = $this->request->dataPost();
+		$params = new CommentEdit($delete);
+		$comment = \Comment::Archive($params);
+
+		$result = [
+			'comment_id' => $comment->getCommentId(),
+		];
+
+		$this->response->set($result);
+	}
 }
