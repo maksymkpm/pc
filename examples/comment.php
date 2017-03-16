@@ -1,14 +1,8 @@
 <?php
 require_once('curl.php');
 
-$methods = [
-	'get' => [
-		'url' => 'http://localhost.api.com/1.0/comment',
-		'method' => 'GET',
-		'param' => [
-			'comment_id' => 2,
-		],
-	],
+$methods = [	
+
 	'create' => [
 		'url' => 'http://localhost.api.com/1.0/comment',
 		'method' => 'POST',
@@ -18,6 +12,15 @@ $methods = [
 			'message' => 'messagemessagemessagemessage',
 		],
 	],
+
+	'get' => [
+		'url' => 'http://localhost.api.com/1.0/comment',
+		'method' => 'GET',
+		'param' => [
+			'comment_id' => 2,
+		],
+	],
+	
 	'edit' => [
 		'url' => 'http://localhost.api.com/1.0/comment',
 		'method' => 'PUT',
@@ -32,6 +35,7 @@ $methods = [
 		'method' => 'PUT',
 		'param' => [
 			'comment_id' => 2,
+			'issue_id' => 3,
 		],
 	],
 	
@@ -40,6 +44,7 @@ $methods = [
 		'method' => 'PUT',
 		'param' => [
 			'comment_id' => 5,
+			'issue_id' => 2,
 		],
 	],
 
@@ -48,8 +53,10 @@ $methods = [
 		'method' => 'PUT',
 		'param' => [
 			'comment_id' => 6,
+			'issue_id' => 1,
 		],
 	],
+
 ];
 
 foreach ($methods as $key => $method) {
