@@ -7,12 +7,14 @@ CREATE TABLE IF NOT EXISTS `issue_comment` (
   `member_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `message` TEXT COLLATE utf8_unicode_ci NOT NULL,
   `status` ENUM('new','published','deleted','archived') NOT NULL DEFAULT 'new' COLLATE 'utf8_unicode_ci',
+  `last_updated` DATETIME NOT NULL,
   `date_added` DATETIME NOT NULL,
 
   PRIMARY KEY (`comment_id`),
   INDEX `issue_id` (`issue_id`),
   INDEX `member_id` (`member_id`),
   INDEX `status` (`status`),
+	INDEX `last_updated` (`last_updated`),
   INDEX `date_added` (`date_added`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 

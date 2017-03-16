@@ -16,3 +16,4 @@ if (\rest\router::loadFromCache()) {
 
 include __DIR__ . '/routing/Test.php';
 include __DIR__ . '/routing/Issue.php';
+include __DIR__ . '/routing/Comment.php';
