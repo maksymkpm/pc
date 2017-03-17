@@ -18,3 +18,4 @@ include __DIR__ . '/routing/Issue.php';
 include __DIR__ . '/routing/Comment.php';
 include __DIR__ . '/routing/Classification.php';
 include __DIR__ . '/routing/Lists.php';
+include __DIR__ . '/routing/Feedback.php';
