@@ -5,7 +5,10 @@ $methods = [
 	'get' => [
 		'url' => 'http://localhost.api.com/1.0/issue/list',
 		'method' => 'GET',
-		'param' => [],
+		'param' => [
+			'category_id' => 2,
+			'object_id' => 2
+		],
 	],
 
 ];

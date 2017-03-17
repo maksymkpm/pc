@@ -7,4 +7,4 @@ use \rest\request;
 router::addController('', ListController::class);
 
 router::controller(ListController::class)
-	->addAction(request::HTTP_GET, 'issue/list', 'issuelist');
+	->addAction(request::HTTP_GET, 'issue/list', 'IssueList');
