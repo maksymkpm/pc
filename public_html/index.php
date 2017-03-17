@@ -27,6 +27,7 @@ config::add_source(__DIR__ . '/../config');
 config::add_source(__DIR__ . '/../config/' . strtolower($environment));
 
 try {
+	
 	if (empty(rest\request::instance()->version)) {
 
 		rest\response::errorNotFound();
