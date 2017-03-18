@@ -57,24 +57,24 @@ CREATE TABLE IF NOT EXISTS `issue` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `feedback_issue` (
-  `issue_id` int(11) NOT NULL AUTO_INCREMENT,
+  `issue_id` int(11) NOT NULL,
   `helpful` tinyint(1) NOT NULL,
   `member_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `date_added` DATETIME NOT NULL,
 
-  PRIMARY KEY (`issue_id`),
+  INDEX `issue_id` (`issue_id`),
   INDEX `member_id` (`member_id`),
   INDEX `helpful` (`helpful`),
   INDEX `date_added` (`date_added`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `feedback_issue_comment` (
-  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment_id` int(11) NOT NULL,
   `helpful` tinyint(1) NOT NULL,
   `member_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `date_added` DATETIME NOT NULL,
 
-  PRIMARY KEY (`comment_id`),
+  INDEX `comment_id` (`comment_id`),
   INDEX `member_id` (`member_id`),
   INDEX `helpful` (`helpful`),
   INDEX `date_added` (`date_added`)

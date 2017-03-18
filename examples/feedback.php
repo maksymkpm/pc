@@ -6,16 +6,17 @@ $methods = [
 		'url' => 'http://localhost.api.com/1.0/feedback/issue',
 		'method' => 'POST',
 		'param' => [
-			'issue_id' => rand(1,100),
+			'issue_id' => rand(1,2),
 			'member_id' => rand(1000,100000),
 			'helpful' => rand(0,1),
 		],
 	],
+	
 'CommentCreate' => [
 		'url' => 'http://localhost.api.com/1.0/feedback/comment',
 		'method' => 'POST',
 		'param' => [
-			'comment_id' => rand(1,100),
+			'comment_id' => rand(1,2),
 			'member_id' => rand(1000,100000),
 			'helpful' => rand(0,1),
 		],
@@ -32,7 +33,7 @@ foreach ($methods as $key => $method) {
 			  ->set_attempts(1)
 			  ->execute();
 	} catch (Exception $e) {
-		$response = $e;
+		$response = $e->getMessage();
 	}
 
 	var_dump($method, $response);
