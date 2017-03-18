@@ -11,14 +11,18 @@ class FeedbackController extends FeedbackBaseController {
 	];
 
 	protected function actionIssueCreate() {
-		$get = $this->request->dataPost();
+        $post = $this->request->dataPost();
+        $params = new FeedbackIssueCreate($post);
+        $Feedback = \Feedback::IssueCreate($params);
 
-		$this->response->set([]);
+        $this->response->set(['result' => $Feedback]);
 	}
 	
 	protected function actionCommentCreate() {
-		$get = $this->request->dataPost();
+        $post = $this->request->dataPost();
+        $params = new FeedbackCommentCreate($post);
+        $Feedback = \Feedback::CommentCreate($params);
 
-		$this->response->set([]);
+        $this->response->set(['result' => $Feedback]);
 	}
 }

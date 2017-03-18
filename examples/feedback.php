@@ -6,16 +6,18 @@ $methods = [
 		'url' => 'http://localhost.api.com/1.0/feedback/issue',
 		'method' => 'POST',
 		'param' => [
-			'comment_id' => 1,
-			'member_id' => 22,
+			'issue_id' => rand(1,100),
+			'member_id' => rand(1000,100000),
+			'helpful' => rand(0,1),
 		],
 	],
 'CommentCreate' => [
 		'url' => 'http://localhost.api.com/1.0/feedback/comment',
 		'method' => 'POST',
 		'param' => [
-			'issue_id' => 1,
-			'member_id' => 22,
+			'comment_id' => rand(1,100),
+			'member_id' => rand(1000,100000),
+			'helpful' => rand(0,1),
 		],
 	],
 
