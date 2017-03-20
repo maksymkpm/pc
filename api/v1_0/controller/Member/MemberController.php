@@ -1,9 +1,9 @@
 <?php
 namespace api\v1_0\controller\Member;
 
-//use \RequestParameters\MemberGet;
-//use \RequestParameters\MemberCreate;
-//use \RequestParameters\MemberEdit;
+use \RequestParameters\MemberGet;
+use \RequestParameters\MemberCreate;
+use \RequestParameters\MemberEdit;
 use RuntimeException;
 
 class MemberController extends MemberBaseController {

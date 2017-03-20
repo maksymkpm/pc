@@ -8,3 +8,6 @@ router::addController('', MemberController::class);
 
 router::controller(MemberController::class)
 	->addAction(request::HTTP_GET, 'member', 'get');
+
+router::controller(MemberController::class)
+	->addAction(request::HTTP_POST, 'member', 'create');
