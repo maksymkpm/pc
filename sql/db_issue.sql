@@ -4,7 +4,7 @@ USE `issues`;
 CREATE TABLE IF NOT EXISTS `issue_comment` (
   `comment_id` int(11) NOT NULL AUTO_INCREMENT,
   `issue_id` int(11) NOT NULL,
-  `member_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `member_id` int(11) NOT NULL,
   `message` TEXT COLLATE utf8_unicode_ci NOT NULL,
   `status` ENUM('new','published','deleted','archived') NOT NULL DEFAULT 'new' COLLATE 'utf8_unicode_ci',
   `helpful` int(11) NOT NULL DEFAULT 0,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `issue_comment` (
 
 CREATE TABLE IF NOT EXISTS `issue` (
   `issue_id` int(11) NOT NULL AUTO_INCREMENT,
-  `member_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `member_id` int(11) NOT NULL,
   `title` VARCHAR(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` TEXT COLLATE utf8_unicode_ci NOT NULL,
   `class_id` tinyint(2) DEFAULT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `issue` (
 CREATE TABLE IF NOT EXISTS `feedback_issue` (
   `issue_id` int(11) NOT NULL,
   `helpful` tinyint(1) NOT NULL,
-  `member_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `member_id` int(11) NOT NULL,
   `date_added` DATETIME NOT NULL,
 
   INDEX `issue_id` (`issue_id`),
@@ -71,11 +71,70 @@ CREATE TABLE IF NOT EXISTS `feedback_issue` (
 CREATE TABLE IF NOT EXISTS `feedback_issue_comment` (
   `comment_id` int(11) NOT NULL,
   `helpful` tinyint(1) NOT NULL,
-  `member_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `member_id` int(11) NOT NULL,
   `date_added` DATETIME NOT NULL,
 
   INDEX `comment_id` (`comment_id`),
   INDEX `member_id` (`member_id`),
   INDEX `helpful` (`helpful`),
+  INDEX `date_added` (`date_added`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `member` (
+  `member_id` int(11) NOT NULL AUTO_INCREMENT,  
+  `gender` ENUM('unknown', 'man','woman') NOT NULL DEFAULT 'unknown' COLLATE 'utf8_unicode_ci',
+  `bdate` DATETIME NULL,
+  `rating` float NOT NULL DEFAULT 0,
+  `status` ENUM('new','verified','deleted','archived') NOT NULL DEFAULT 'new' COLLATE 'utf8_unicode_ci',
+  `last_login` DATETIME NOT NULL,
+  `date_added` DATETIME NOT NULL,
+
+  PRIMARY KEY (`member_id`),
+  INDEX `gender` (`gender`),
+  INDEX `bdate` (`bdate`),  
+  INDEX `rating` (`rating`),
+  INDEX `status` (`status`),
+  INDEX `last_login` (`last_login`),
+  INDEX `date_added` (`date_added`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `member_details` (
+  `member_id` int(11) NOT NULL,
+  `origin` ENUM('vk','fb','ios','android','site') NOT NULL COLLATE 'utf8_unicode_ci',
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NULL,
+  `status` ENUM('new','verified','deleted','archived') NOT NULL DEFAULT 'new' COLLATE 'utf8_unicode_ci',
+  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `token_expiry` DATETIME NOT NULL,
+  `last_login` DATETIME NOT NULL,
+  `date_added` DATETIME NOT NULL,
+
+  INDEX `member_id` (`member_id`),
+  INDEX `origin` (`origin`),
+  INDEX `username` (`username`),  
+  INDEX `status` (`status`),
+  INDEX `token` (`token`),
+  INDEX `token_expiry` (`token_expiry`),
+  INDEX `last_login` (`last_login`),
+  INDEX `date_added` (`date_added`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `member_rating` (
+  `member_id` int(11) NOT NULL,
+  `rating` float NOT NULL DEFAULT 0,
+  `date_added` DATETIME NOT NULL,
+
+  INDEX `member_id` (`member_id`),
+  INDEX `rating` (`rating`),
+  INDEX `date_added` (`date_added`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `member_login` (
+  `member_id` int(11) NOT NULL,
+  `origin` ENUM('vk','fb','ios','android','site') NOT NULL COLLATE 'utf8_unicode_ci',
+  `date_added` DATETIME NOT NULL,
+
+  INDEX `member_id` (`member_id`),
+  INDEX `origin` (`origin`),
   INDEX `date_added` (`date_added`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
