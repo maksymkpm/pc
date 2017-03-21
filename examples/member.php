@@ -2,6 +2,15 @@
 require_once('curl.php');
 
 $methods = [
+	'auth' => [
+		'url' => 'http://localhost.api.com/1.0/member/auth',
+		'method' => 'POST',
+		'param' => [
+			'vk_member_id' => 666,
+			'origin' => 'vk'
+		],
+	],
+	/*
 	'get' => [
 		'url' => 'http://localhost.api.com/1.0/member',
 		'method' => 'GET',
@@ -17,11 +26,11 @@ $methods = [
 			'gender' => 'man',
 			'bdate' => '1991-01-01',
 			'origin' => 'vk',
-			'username' => 'coloclo@colo.com',
+			'username' => rand(1,6),
 			'password' => 'coloclo@'
 		],
 	],
-
+*/
 ];
 
 foreach ($methods as $key => $method) {

@@ -8,15 +8,25 @@ use RuntimeException;
 
 class MemberController extends MemberBaseController {
 	protected $noTokenAction = [
-		'create'
+		'auth', 'create'
 	];
+
+	protected function actionAuth() {
+        $request = $this->request->dataPost();
+		$member = \Member::Auth($request);
+
+		$memberData = [];
+		if (!is_null($member)) {
+			$memberData = $member->returnData();
+		}
+
+		$this->response->set($memberData);
+	}
 
 	protected function actionGet() {
         $request = $this->request->dataGet();
 		$params = new MemberGet($request);
-
         $member = \Member::Get($params->member_id);
-
 		$memberData = $member->returnData();
 		$this->response->set($memberData);
 	}

@@ -11,3 +11,6 @@ router::controller(MemberController::class)
 
 router::controller(MemberController::class)
 	->addAction(request::HTTP_POST, 'member', 'create');
+
+router::controller(MemberController::class)
+	->addAction(request::HTTP_POST, 'member/auth', 'auth');
