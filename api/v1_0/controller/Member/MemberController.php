@@ -7,8 +7,11 @@ use \RequestParameters\MemberEdit;
 use RuntimeException;
 
 class MemberController extends MemberBaseController {
+	protected $member_id;
+	protected $token;
+	
 	protected $noTokenAction = [
-		'auth', 'create'
+		'Auth', 'Create'
 	];
 
 	protected function actionAuth() {
@@ -20,13 +23,12 @@ class MemberController extends MemberBaseController {
 			$memberData = $member->returnData();
 		}
 
-		$this->response->set($memberData);
+		$this->response->set(['token' => $memberData['token']]);
 	}
 
+	//return member by provided token
 	protected function actionGet() {
-        $request = $this->request->dataGet();
-		$params = new MemberGet($request);
-        $member = \Member::Get($params->member_id);
+        $member = \Member::Get($this->member_id);
 		$memberData = $member->returnData();
 		$this->response->set($memberData);
 	}
@@ -36,7 +38,8 @@ class MemberController extends MemberBaseController {
         $params = new MemberCreate($request);
 		$member = \Member::Create($params);
 		$memberData = $member->returnData();
-		$this->response->set($memberData);
+		
+		$this->response->set(['token' => $memberData['token']]);
 	}
 
 }
