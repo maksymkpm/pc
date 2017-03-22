@@ -2,7 +2,7 @@
 require_once('curl.php');
 
 $methods = [
-/*	
+
 	'create' => [
 		'url' => 'http://localhost.api.com/1.0/member',
 		'method' => 'POST',
@@ -22,7 +22,7 @@ $methods = [
 			'profile' => 'vk'
 		],
 	],
-	*/
+	
 	'get' => [
 		'url' => 'http://localhost.api.com/1.0/member',
 		'method' => 'GET',

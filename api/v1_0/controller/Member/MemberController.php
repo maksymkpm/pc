@@ -23,7 +23,7 @@ class MemberController extends MemberBaseController {
 			$memberData = $member->returnData();
 		}
 
-		$this->response->set(['token' => $memberData['token']]);
+		$this->response->set($memberData);
 	}
 
 	//return member by provided token
@@ -39,7 +39,7 @@ class MemberController extends MemberBaseController {
 		$member = \Member::Create($params);
 		$memberData = $member->returnData();
 		
-		$this->response->set(['token' => $memberData['token']]);
+		$this->response->set($memberData);
 	}
 
 }
