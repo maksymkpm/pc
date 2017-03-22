@@ -67,7 +67,8 @@ abstract class BaseController extends controller {
 		} catch (\AuthenticationException $e){
 			$result = [
 				'type' => 'authentication',
-				'message' => $e->getMessage()
+				'message' => $e->getMessage(),
+				'code' => $e->getCode()
 			];
 
 			//header('Content-Type: application/json', true, $e->getCode());
@@ -75,15 +76,17 @@ abstract class BaseController extends controller {
 		}catch (\NotFoundHttpException $e){
 			$result = [
 				'type' => 'not-found',
-				'message' => $e->getMessage()
+				'message' => $e->getMessage(),
+				'code' => $e->getCode()
 			];
 
-			header('Content-Type: application/json', true, 404);
+			//header('Content-Type: application/json', true, 404);
 			$this->response->set($result);
 		}catch (\RuntimeException $e) {
 			$result = [
 				'type' => 'system-error',
 				'message' => $e->getMessage(),
+				'code' => $e->getCode()
 			];
 
 			//$result['trace'] = $e->getTrace();
@@ -97,10 +100,10 @@ abstract class BaseController extends controller {
 				'message' => $e->getMessage()
 					. "\n\nSQL: " . $e->getQuery()
 					. "\n\nBinds: " . print_r($e->getBinds(), true)
-					. "\n\nTrace: " . $e->getTrace(),
+					. "\n\nTrace: " . $e->getTrace()
 			];
 
-			header('Content-Type: application/json', true, 500);
+			//header('Content-Type: application/json', true, 500);
 			$this->response->set($result);
 		} catch (\Exception $e) {
 			response::error500();
@@ -108,10 +111,11 @@ abstract class BaseController extends controller {
 			$result = [
 				'type' => 'system-error',
 				'message' => $e->getMessage(),
-				'trace' => $e->getTrace()
+				'trace' => $e->getTrace(),
+				'code' => $e->getCode()
 			];
 
-			header('Content-Type: application/json', true, 500);
+			//header('Content-Type: application/json', true, 500);
 			$this->response->set($result);
 		}
 
@@ -127,8 +131,7 @@ abstract class BaseController extends controller {
 
 		header('Content-Type: application/json', true, 200);
 
-		$this->response
-			->set($result);
+		$this->response->set($result);
 	}
 
 	protected function runBeforeAction() {
