@@ -22,7 +22,7 @@ $methods = [
 			'profile' => 'vk'
 		],
 	],
-	
+
 	'get' => [
 		'url' => 'http://localhost.api.com/1.0/member',
 		'method' => 'GET',
