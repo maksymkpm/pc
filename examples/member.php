@@ -2,12 +2,23 @@
 require_once('curl.php');
 
 $methods = [
+	'create' => [
+		'url' => 'http://localhost.api.com/1.0/member',
+		'method' => 'POST',
+		'param' => [
+			//'gender' => 'man',
+			//'bdate' => '1991-01-01',
+			'profile' => 'vk',
+			'username' => rand(1,6)
+		],
+	],
+	
 	'auth' => [
 		'url' => 'http://localhost.api.com/1.0/member/auth',
 		'method' => 'POST',
 		'param' => [
 			'vk_member_id' => 666,
-			'origin' => 'vk'
+			'profile' => 'vk'
 		],
 	],
 	/*
@@ -16,18 +27,6 @@ $methods = [
 		'method' => 'GET',
 		'param' => [
 			'member_id' => rand(1,6)
-		],
-	],
-	
-	'create' => [
-		'url' => 'http://localhost.api.com/1.0/member',
-		'method' => 'POST',
-		'param' => [
-			'gender' => 'man',
-			'bdate' => '1991-01-01',
-			'origin' => 'vk',
-			'username' => rand(1,6),
-			'password' => 'coloclo@'
 		],
 	],
 */

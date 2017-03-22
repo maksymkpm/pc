@@ -98,9 +98,9 @@ CREATE TABLE IF NOT EXISTS `member` (
   INDEX `date_added` (`date_added`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
-CREATE TABLE IF NOT EXISTS `member_details` (
+CREATE TABLE IF NOT EXISTS `member_profile` (
   `member_id` int(11) NOT NULL,
-  `origin` ENUM('vk','fb','ios','android','site') NOT NULL COLLATE 'utf8_unicode_ci',
+  `profile` ENUM('vk','fb','ios','android','site') NOT NULL COLLATE 'utf8_unicode_ci',
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NULL,
   `status` ENUM('new','verified','deleted','archived') NOT NULL DEFAULT 'new' COLLATE 'utf8_unicode_ci',
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `member_details` (
   `date_added` DATETIME NOT NULL,
 
   INDEX `member_id` (`member_id`),
-  INDEX `origin` (`origin`),
+  INDEX `profile` (`profile`),
   INDEX `username` (`username`),  
   INDEX `status` (`status`),
   INDEX `token` (`token`),
@@ -131,10 +131,10 @@ CREATE TABLE IF NOT EXISTS `member_rating` (
 
 CREATE TABLE IF NOT EXISTS `member_login` (
   `member_id` int(11) NOT NULL,
-  `origin` ENUM('vk','fb','ios','android','site') NOT NULL COLLATE 'utf8_unicode_ci',
+  `profile` ENUM('vk','fb','ios','android','site') NOT NULL COLLATE 'utf8_unicode_ci',
   `date_added` DATETIME NOT NULL,
 
   INDEX `member_id` (`member_id`),
-  INDEX `origin` (`origin`),
+  INDEX `profile` (`profile`),
   INDEX `date_added` (`date_added`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
