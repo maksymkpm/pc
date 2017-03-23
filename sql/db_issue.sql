@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `feedback_issue` (
   `member_id` int(11) NOT NULL,
   `date_added` DATETIME NOT NULL,
 
+  PRIMARY KEY `issue_member` (`issue_id`, `member_id`),
   INDEX `issue_id` (`issue_id`),
   INDEX `member_id` (`member_id`),
   INDEX `helpful` (`helpful`),
@@ -74,6 +75,7 @@ CREATE TABLE IF NOT EXISTS `feedback_issue_comment` (
   `member_id` int(11) NOT NULL,
   `date_added` DATETIME NOT NULL,
 
+  PRIMARY KEY `comment_member` (`comment_id`, `member_id`),
   INDEX `comment_id` (`comment_id`),
   INDEX `member_id` (`member_id`),
   INDEX `helpful` (`helpful`),
