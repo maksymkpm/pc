@@ -9,7 +9,7 @@ use RuntimeException;
 class MemberController extends MemberBaseController {
 	protected $member_id;
 	protected $token;
-	
+
 	protected $noTokenAction = [
 		'Auth', 'Create'
 	];
@@ -38,7 +38,7 @@ class MemberController extends MemberBaseController {
         $params = new MemberCreate($request);
 		$member = \Member::Create($params);
 		$memberData = $member->returnData();
-		
+
 		$this->response->set($memberData);
 	}
 

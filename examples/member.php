@@ -27,7 +27,17 @@ $methods = [
 		'url' => 'http://localhost.api.com/1.0/member',
 		'method' => 'GET',
 		'param' => [
-			'member_id' => 6
+			'member_id' => 5
+		],
+	],
+	
+	//can be without params
+	'IssueList' => [
+		'url' => 'http://localhost.api.com/1.0/member/issue/list',
+		'method' => 'GET',
+		'param' => [
+			//'status' => 'new',
+			
 		],
 	],
 
@@ -37,7 +47,7 @@ foreach ($methods as $key => $method) {
 	try {
 	$response = curl::request($method['method'], $method['url'])
 			  ->set_timeout(60)
-			  ->set_header('Authorization', 'Bearer M$2y$10$o5iH/JaMUQbQHoX22ZzxE.IICDZY7aH41dCdIj1EOQ10IVxzB/xzG')
+			  ->set_header('Authorization', 'Bearer M$2y$10$TEEzMzbaOLAJHX4DJfxAz.VaaAhsWspRV.P6RSo.R1Dl09kMLti4O')
 			  ->set_parameter($method['param'])
 			  ->set_attempts(1)
 			  ->execute();
