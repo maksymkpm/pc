@@ -145,6 +145,7 @@ CREATE TABLE IF NOT EXISTS `follow_issue` (
   `date_added` DATETIME NOT NULL,
   `date_finished` DATETIME DEFAULT NULL,
 
+  PRIMARY KEY `follower_issue` (`issue_id`, `member_id`),
   INDEX `member_id` (`member_id`),
   INDEX `issue_id` (`issue_id`),
   INDEX `date_added` (`date_added`),
@@ -158,6 +159,7 @@ CREATE TABLE IF NOT EXISTS `follow_member` (
   `date_added` DATETIME NOT NULL,
   `date_finished` DATETIME DEFAULT NULL,
 
+  PRIMARY KEY `follower_member` (`follower_id`, `member_id`),
   INDEX `follower_id` (`follower_id`),
   INDEX `member_id` (`member_id`),
   INDEX `date_added` (`date_added`),

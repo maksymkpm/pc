@@ -36,8 +36,40 @@ $methods = [
 		'url' => 'http://localhost.api.com/1.0/member/issue/list',
 		'method' => 'GET',
 		'param' => [
-			//'status' => 'new',
+			'status' => 'new',
 			
+		],
+	],
+	
+	'follow_issue' => [
+		'url' => 'http://localhost.api.com/1.0/member/follow/issue',
+		'method' => 'POST',
+		'param' => [
+			'issue_id' => rand(1,5),
+		],
+	],
+	
+	'follow_member' => [
+		'url' => 'http://localhost.api.com/1.0/member/follow/member',
+		'method' => 'POST',
+		'param' => [
+			'member_id' => rand(1,5),
+		],
+	],
+	
+	'stop_follow_issue' => [
+		'url' => 'http://localhost.api.com/1.0/member/stopfollow/issue',
+		'method' => 'POST',
+		'param' => [
+			'issue_id' => rand(1,5),
+		],
+	],
+	
+	'stop_follow_member' => [
+		'url' => 'http://localhost.api.com/1.0/member/stopfollow/member',
+		'method' => 'POST',
+		'param' => [
+			'member_id' => rand(1,5),
 		],
 	],
 
