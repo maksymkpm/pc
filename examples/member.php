@@ -52,7 +52,7 @@ foreach ($methods as $key => $method) {
 			  ->set_attempts(1)
 			  ->execute();
 	} catch (CurlException $e) {
-		$response = $e;
+		$response = $e->getMessage();
 	}
 
 	var_dump($method, $response);

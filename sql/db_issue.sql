@@ -138,3 +138,28 @@ CREATE TABLE IF NOT EXISTS `member_login` (
   INDEX `profile` (`profile`),
   INDEX `date_added` (`date_added`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `follow_issue` (
+  `member_id` int(11) NOT NULL,
+  `issue_id` int(11) NOT NULL,
+  `date_added` DATETIME NOT NULL,
+  `date_finished` DATETIME DEFAULT NULL,
+
+  INDEX `member_id` (`member_id`),
+  INDEX `issue_id` (`issue_id`),
+  INDEX `date_added` (`date_added`),
+  INDEX `date_finished` (`date_finished`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE IF NOT EXISTS `follow_member` (
+  `follower_id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `date_added` DATETIME NOT NULL,
+  `date_finished` DATETIME DEFAULT NULL,
+
+  INDEX `follower_id` (`follower_id`),
+  INDEX `member_id` (`member_id`),
+  INDEX `date_added` (`date_added`),
+  INDEX `date_finished` (`date_finished`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;

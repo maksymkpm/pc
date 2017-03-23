@@ -20,3 +20,4 @@ class MemberIssueController extends MemberBaseController {
 		$this->response->set($member);
 	}
 }
+
